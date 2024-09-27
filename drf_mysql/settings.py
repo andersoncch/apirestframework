@@ -37,9 +37,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_filters',
     'rest_framework',
     'api'
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': (
+        'django_filters.rest_framework.DjangoFilterBackend',
+    ),
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -82,7 +89,7 @@ DATABASES = {
         'PORT': '3306',
         'USER': 'root',
         'PASSWORD': '',
-        'NAME': 'django_restframework',  # Cambié el nombre para que coincida
+        'NAME': 'django_restframework',  
         'OPTIONS' : {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
         }
